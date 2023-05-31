@@ -1,0 +1,13 @@
+package nestorcicardini.D3test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class D3TestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(D3TestApplication.class, args);
+	}
+
+}
