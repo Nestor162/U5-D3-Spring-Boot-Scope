@@ -30,7 +30,7 @@ public class MenuConfig {
 	@Bean
 	Menu getPizzaMenu() {
 		Menu menuPizza = new Menu();
-		menuPizza.getProductList().add(getMargerita());
+		menuPizza.getProductList().add(getMargherita());
 		menuPizza.getProductList().add(getHawaiianPizza());
 		menuPizza.getProductList().add(getSalamiPizza());
 		menuPizza.getProductList().add(getHamPizza());
@@ -62,7 +62,7 @@ public class MenuConfig {
 	// PIZZE
 	@Scope("singleton")
 	@Bean
-	Consummation getMargerita() {
+	Consummation getMargherita() {
 		return new Pizza();
 	}
 
@@ -158,7 +158,7 @@ public class MenuConfig {
 	@Scope("singleton")
 	Order Order1() {
 		List<Product> productsList = new ArrayList<>();
-		productsList.add(getMargerita());
+		productsList.add(getMargherita());
 		productsList.add(getLemonade());
 		return new Order(productsList, 1, OrderStatus.IN_PROGRESS, 4, "14:30",
 				2, getTable1(), "Lemonade without sugar");
