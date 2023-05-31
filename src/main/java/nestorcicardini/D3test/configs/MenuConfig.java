@@ -1,10 +1,17 @@
 package nestorcicardini.D3test.configs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 
 import nestorcicardini.D3test.entities.Consummation;
 import nestorcicardini.D3test.entities.Menu;
+import nestorcicardini.D3test.entities.Order;
+import nestorcicardini.D3test.entities.Order.OrderStatus;
+import nestorcicardini.D3test.entities.Product;
+import nestorcicardini.D3test.entities.Table;
 import nestorcicardini.D3test.entities.drinks.Drink;
 import nestorcicardini.D3test.entities.drinks.Lemonade;
 import nestorcicardini.D3test.entities.drinks.Water;
@@ -52,6 +59,7 @@ public class MenuConfig {
 		return menuFranchise;
 	}
 
+	// PIZZE
 	@Scope("singleton")
 	@Bean
 	Consummation getMargerita() {
@@ -88,6 +96,8 @@ public class MenuConfig {
 		return new HamTopping(new OnionTopping(new Pizza()));
 	}
 
+	// DRINKS
+
 	@Scope("singleton")
 	@Bean
 	Drink getLemonade() {
@@ -106,6 +116,8 @@ public class MenuConfig {
 		return new Water(0.5);
 	}
 
+	// MERCHANDISE
+
 	@Scope("singleton")
 	@Bean
 	Gadget getShirt() {
@@ -118,4 +130,50 @@ public class MenuConfig {
 		return new Shirt(gadgetType.mug);
 	}
 
+	// TABLES
+
+	@Scope("singleton")
+	@Bean
+	Table getTable1() {
+		Table table = new Table(1, 4, false);
+		return table;
+	}
+
+	@Scope("singleton")
+	@Bean
+	Table getTable2() {
+		Table table = new Table(2, 2, true);
+		return table;
+	}
+
+	@Scope("singleton")
+	@Bean
+	Table getTable3() {
+		Table table = new Table(3, 6, false);
+		return table;
+	}
+
+	// ORDERS
+	@Bean
+	@Scope("singleton")
+	Order Order1() {
+		List<Product> productsList = new ArrayList<>();
+		productsList.add(getMargerita());
+		productsList.add(getLemonade());
+		return new Order(productsList, 1, OrderStatus.IN_PROGRESS, 4, "14:30",
+				2, getTable1(), "Lemonade without sugar");
+	}
+
+	@Bean
+	@Scope("singleton")
+	Order Order2() {
+		List<Product> productsList = new ArrayList<>();
+		productsList.add(getSalamiPizza());
+		productsList.add(getHawaiianPizza());
+		productsList.add(getShirt());
+		productsList.add(getWater());
+		return new Order(productsList, 2, OrderStatus.READY, 4, "20:20", 2,
+				getTable2(), "Sparkling water");
+
+	}
 }
