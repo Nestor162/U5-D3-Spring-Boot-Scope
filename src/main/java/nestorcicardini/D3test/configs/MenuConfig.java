@@ -52,56 +52,67 @@ public class MenuConfig {
 		return menuFranchise;
 	}
 
+	@Scope("singleton")
 	@Bean
 	Consummation getMargerita() {
 		return new Pizza();
 	}
 
+	@Scope("singleton")
 	@Bean
 	Consummation getHawaiianPizza() {
 		return new PineappleTopping(new HamTopping(new Pizza()));
 	}
 
+	@Scope("singleton")
 	@Bean
 	Consummation getSalamiPizza() {
 		return new SalamiTopping((new Pizza()));
 	}
 
+	@Scope("singleton")
 	@Bean
 	Consummation getHamPizza() {
 		return new HamTopping(new Pizza());
 	}
 
+	@Scope("singleton")
 	@Bean
 	Consummation getOnionsPizza() {
 		return new OnionTopping(new Pizza());
 	}
 
+	@Scope("singleton")
 	@Bean
 	Consummation getOnionsHamPizza() {
 		return new HamTopping(new OnionTopping(new Pizza()));
 	}
 
+	@Scope("singleton")
 	@Bean
 	Drink getLemonade() {
 		return new Lemonade(0.33);
 	}
 
+	@Scope("singleton")
 	@Bean
 	Drink getWine() {
 		return new Wine(0.75);
 	}
 
+	@Scope("singleton")
 	@Bean
 	Drink getWater() {
 		return new Water(0.5);
 	}
 
+	@Scope("singleton")
 	@Bean
 	Gadget getShirt() {
 		return new Shirt(gadgetType.shirt);
 	}
 
+	@Scope("singleton")
 	@Bean
 	Gadget getMug() {
 		return new Shirt(gadgetType.mug);
