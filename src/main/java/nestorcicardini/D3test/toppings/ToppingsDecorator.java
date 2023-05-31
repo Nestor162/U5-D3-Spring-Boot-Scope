@@ -11,7 +11,7 @@ public class ToppingsDecorator extends Consummation {
 	}
 
 	public String getName() {
-		return this.decoratedPizza.getName() + "più" + this.name;
+		return this.decoratedPizza.getName() + "+" + this.name;
 	}
 
 	public int getCalories() {
